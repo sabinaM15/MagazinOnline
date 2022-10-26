@@ -28,14 +28,12 @@ export class ProductService{
     sample_products[index] = product
   }
 
-  deleteProduct(productId:string){
-    console.log(productId)
-    const index = sample_products.findIndex(x => x.id = productId);
-    console.log(index)
-    const newProducts = sample_products.splice(index, 1);
-
-    sample_products[index] = newProducts;
-    console.log(sample_products)
+  deleteProduct(product:Product){
+    console.log("Product ",product)
+    const index= sample_products.indexOf(product);
+    // console.log("Index:", index)
+    sample_products.splice(index, 1);
+    // console.log(sample_products)
 
     
   }

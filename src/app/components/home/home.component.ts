@@ -27,7 +27,9 @@ export class HomeComponent implements OnInit{
 
   deleteProduct(productId:string){
     // console.log(productId);
-    return this.productService.deleteProduct(productId);
+    // const id: number = parseInt(productId);
+    const product = this.productService.getProductById(productId);
+    return this.productService.deleteProduct(product);
     
   }
   
