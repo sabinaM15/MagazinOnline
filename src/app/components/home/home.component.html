@@ -1,29 +1,38 @@
-<ul>
-  <div class="container">
-    <div class="row" >
-      <div *ngFor="let product of products" class="col-md">
-        <a routerLink="/product/{{product.id}}">
-          <img src="{{product.img}}" class="rounded mx-auto d-block"/>
-            <h4>
-              {{product.name}}
-            </h4>
+
+<div class="carousel-inner py-4">
+  <div class="carousel-item active">
+    <div class="container">
+      <div class="row">
+        <div *ngFor="let product of products" class="col-lg-4 p-4">
+          <div class="card" style="align-items: center;">
             <div>
-              <span><b>Price:</b> {{product.price}}</span>
+              <img
+                src="{{product.img}}"
+                class="card-img-top"
+                routerLink="/product/{{product.id}}"
+              />
             </div>
-            <div>
-              <span><b>Stock:</b> {{product.stock}}</span>
+            <div class="card-body" >
+              <h5 class="card-title">{{product.name}}</h5>
+              <div>
+                <span><b>Price:</b> {{product.price | currency}}</span>
+              </div>
+              <div>
+                <span><b>Rating:</b> {{product.rating}}</span>
+              </div>
+              <div><b>Available at: </b>
+                <span> {{product.address.street}} {{product.address.num}}, {{product.address.city}}</span>
+              </div>
+              <div class="p-2">
+                <button routerLink="/editProduct/{{product.id}}" type="button" class="btn btn-light">Edit</button>
+              </div>
+              <div class="p-2">
+                <button type="button" class="btn btn-light" (click)="deleteProduct(product.id)">Delete</button>
+              </div>
             </div>
-            <div>
-              <span><b>Description:</b> {{product.description}}</span>
-            </div>
-            <div>
-              <span><b>Rating:</b> {{product.rating}}</span>
-            </div>
-            <div><b>Comments:</b> {{product.comments}}</div>
-            <div><b>Location:</b><span>{{product.address.street}} {{product.address.num}}, {{product.address.city}}</span>
-            </div>
-        </a>
+          </div>
         </div>
+      </div>
     </div>
   </div>
-</ul>
+</div>

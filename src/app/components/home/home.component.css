@@ -1,10 +1,10 @@
-img{
+.card-img-top{
   height: 200px;
   width: 200px;
 }
-.col-md{
-  border: 1px solid rgb(222, 212, 212);
+.col-4{
+  border: 1px solid rgb(138, 129, 129);
   border-radius:5%;
-  margin: 10px;
+  margin: 1px;
 }
 

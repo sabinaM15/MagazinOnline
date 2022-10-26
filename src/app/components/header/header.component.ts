@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { CartService } from "src/app/services/cart.service";
 
 @Component({
   selector: 'app-header',
@@ -7,12 +8,17 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class HeaderComponent implements OnInit{
   searchTerm ='';
-  constructor(activatedRoute:ActivatedRoute, private router:Router){
+  cartQuantity = 0;
+  constructor(activatedRoute:ActivatedRoute, private router:Router, cartService: CartService){
 
     activatedRoute.params.subscribe((params) =>{
       if(params['searchTerm'])
         this.searchTerm = params['searchTerm'];
     });
+
+    cartService.getCartObservable().subscribe((newCart) => {
+      this.cartQuantity = newCart.totalCount;
+    })
   }
 
   ngOnInit(): void {

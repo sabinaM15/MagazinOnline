@@ -2,7 +2,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="#" routerLink="/home">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Add Products</a>
@@ -19,14 +19,19 @@
         </div>
       </li>
       <li class="nav-item">
-        <a routerLink="/cart-page" class="nav-link" href="#">Cart</a>
+        <a routerLink="/cart-page" class="nav-link" href="#">Cart
+          <!-- <span class="counter counter-lg" *ngIf="cartQuantity">{{cartQuantity}}</span> -->
+        </a>
       </li>
     </ul>
-    <div style="margin-left: 500px;">
-      <form class="form-inline my-2 my-lg-0">
-        <input #s class="form-control mr-sm-2" type="text" placeholder="Search Products" aria-label="Search" (keyup.enter)="search(s.value)" [value]="searchTerm">
-        <button class="btn btn-outline-success" (click)="search(s.value)">Search</button>
-      </form>
+    <div class="row" style="margin-left: 500px;">
+        <div class="col-6 pr-0">
+          <input #s class="form-control mr-sm-2" type="text" placeholder="Search Products" aria-label="Search" (keyup.enter)="search(s.value)" [value]="searchTerm">
+        </div>
+        <div class="col-6">
+          <button class="btn btn-outline-success" (click)="search(s.value)">Search</button>
+        </div>
+        
     </div>
   </div>
 </nav>

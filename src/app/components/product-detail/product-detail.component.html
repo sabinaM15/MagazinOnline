@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row" >
-      <a routerLink="/product/{{product.id}}">
-        <img src="{{product.img}}" class="rounded mx-auto d-block"/>
+      <div class="col-6">
           <h4>
             {{product.name}}
           </h4>
@@ -20,7 +19,10 @@
           <div><b>Comments:</b> {{product.comments}}</div>
           <div><b>Location:</b><span>{{product.address.street}} {{product.address.num}}, {{product.address.city}}</span>
           </div>
-      </a>
-      <button>Add to Cart</button>
+      </div>
+      <div class="col-6">
+        <img src="{{product.img}}" class="rounded mx-auto d-block">
+      </div>
+      <button type="button" class="btn btn-light" (click)="addToCart()">Add to Cart</button>
   </div>
 </div>

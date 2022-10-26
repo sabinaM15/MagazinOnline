@@ -23,7 +23,12 @@ export class HomeComponent implements OnInit{
         }
       })
   }
-  ngOnInit(): void {
+  ngOnInit(): void {}
 
+  deleteProduct(productId:string){
+    // console.log(productId);
+    return this.productService.deleteProduct(productId);
+    
   }
+  
 }

@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row" >
+        <div class="col-6">
+            <div class="form-group">
+                <label for="inputName" class="col-lg-3 control-label">Name Of Product: </label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" id="inputName" placeholder="Name" [(ngModel)] ="selectedProduct.name" name="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputName" class="col-lg-3 control-label">Price: </label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" id="inputTitle" placeholder="Price" [(ngModel)] ="selectedProduct.price" name="price">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputName" class="col-lg-3 control-label">Location: </label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" id="inputTitle" placeholder="Code" [(ngModel)] ="selectedProduct.address.nickname" name="nickname">
+                    <input type="text" class="form-control" id="inputTitle" placeholder="Street" [(ngModel)] ="selectedProduct.address.street" name="street">
+                    <input type="text" class="form-control" id="inputTitle" placeholder="Number" [(ngModel)] ="selectedProduct.address.num" name="num">
+                    <input type="text" class="form-control" id="inputTitle" placeholder="City" [(ngModel)] ="selectedProduct.address.city" name="city">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputName" class="col-lg-3 control-label">Stock: </label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" id="inputTitle" placeholder="Stock" [(ngModel)] ="selectedProduct.stock" name="stock">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputName" class="col-lg-3 control-label">Description: </label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" id="inputTitle" placeholder="Description" [(ngModel)] ="selectedProduct.description" name="description">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputName" class="col-lg-3 control-label">Rating: </label>
+                <div class="col-lg-8">
+                    <input type="text" class="form-control" id="inputTitle" placeholder="Rating" [(ngModel)] ="selectedProduct.rating" name="rating">
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-light" (click)="saveChanges()" routerLink="/home">Save</button>
+            </div>
+            
+        </div>
+        <div class="col-6">
+            <img [src]="selectedProduct.img" class="rounded mx-auto d-block"/>
+        </div>
+        
+        
+    </div>
+  </div>
