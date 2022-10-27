@@ -2,8 +2,8 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { TitleStrategy } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
-import { Cart } from 'src/app/shared/cart.model';
-import { CartItem } from 'src/app/shared/cartItem.model';
+import { Cart } from 'src/app/models/cart.model';
+import { CartItem } from 'src/app/models/cartItem.model';
 
 @Component({
   selector: 'app-cart-page',

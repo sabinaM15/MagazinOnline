@@ -11,7 +11,9 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule} from '@angular/common/http';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { AddressDetailComponent } from './components/address-detail/address-detail.component'
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { HttpClientModule} from '@angular/common/http'
     ProductDetailComponent,
     CartPageComponent,
     EditProductComponent,
+    AddProductComponent,
+    AddressDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RatingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

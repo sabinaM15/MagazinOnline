@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StarRatingComponent } from 'ng-starrating';
 import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
@@ -9,9 +10,11 @@ import { PrimeNGConfig } from 'primeng/api';
 export class AppComponent {
   constructor(private primengConfig: PrimeNGConfig) {}
 
-    ngOnInit() {
-        this.primengConfig.ripple = true;
-    }
+  ngOnInit() {
+      this.primengConfig.ripple = true;
+  }
+
+  
 }
 
 

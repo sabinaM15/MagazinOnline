@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AddressService } from 'src/app/services/address.service';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
-import { Product } from 'src/app/shared/product.model';
+import { Address } from 'src/app/models/address.model';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-product-detail',
@@ -11,10 +13,20 @@ import { Product } from 'src/app/shared/product.model';
 })
 export class ProductDetailComponent implements OnInit {
   product!: Product
-  constructor(activatedRoute:ActivatedRoute, productService: ProductService, private cartService: CartService, private router: Router) {
+  addresses: Address[] = []
+
+  constructor(
+    activatedRoute:ActivatedRoute, 
+    productService: ProductService, 
+    private cartService: CartService, 
+    private addressService: AddressService,
+    private router: Router)
+    {
     activatedRoute.params.subscribe((params) => {
       if(params['id'])
         this.product = productService.getProductById(params['id']);
+        this.addresses = addressService.getAllAddresses();
+        console.log(this.addresses);
     })
    }
 

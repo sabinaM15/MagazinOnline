@@ -17,8 +17,12 @@
             <span><b>Rating:</b> {{product.rating}}</span>
           </div>
           <div><b>Comments:</b> {{product.comments}}</div>
-          <div><b>Location:</b><span>{{product.address.street}} {{product.address.num}}, {{product.address.city}}</span>
+          <!-- <div *ngFor="let address of addresses">
+            <div *ngFor="let i in address">
+              <div *ngIf="product.address[i] === address.id"><b>Location:</b><span>{{address.street}} {{address.num}}, {{address.city}}</span>
+            </div>
           </div>
+          </div> -->
       </div>
       <div class="col-6">
         <img src="{{product.img}}" class="rounded mx-auto d-block">

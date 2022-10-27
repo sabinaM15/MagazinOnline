@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AddressService } from 'src/app/services/address.service';
 import { ProductService } from 'src/app/services/product.service';
-import { Product } from 'src/app/shared/product.model';
+import { Address } from 'src/app/models/address.model';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-edit-product',
@@ -11,14 +13,32 @@ import { Product } from 'src/app/shared/product.model';
 export class EditProductComponent implements OnInit {
 
   selectedProduct!: Product;
-
-  constructor(private route: ActivatedRoute, private productService: ProductService) { 
+  selectedAddress: Array<Address> = [];
+  allAddresses!: Address[];
+  oneAddress!: Address;
+  // address!: Address;
+  constructor(private route: ActivatedRoute, private productService: ProductService, private addressService: AddressService) { 
     
   }
 
   ngOnInit(): void {
     let productId: string = this.route.snapshot.params['id'];
     this.selectedProduct = this.productService.getProductById(productId);
+    this.allAddresses = this.addressService.getAllAddresses();
+    // console.log("Adresele Produsului: ", this.selectedProduct.address)
+    // console.log("Toate Adresele", this.allAddresses)
+    for(let address in this.allAddresses){
+      // console.log(address)
+
+      for(let adr in this.selectedProduct.address){
+        if(adr === address){
+          this.oneAddress = this.addressService.getAddressById(parseInt(address));
+          this.selectedAddress.push(this.oneAddress);
+        }
+      }
+      // console.log(address)
+    }
+    // console.log(this.selectedAddress)
   }
 
   saveChanges(){

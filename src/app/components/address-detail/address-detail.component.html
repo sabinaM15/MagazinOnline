@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row" >
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Location Code: {{address.code}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted"><b>Street:</b></h6>
+            <p class="card-text">{{address.street}}</p>
+            <h6 class="card-subtitle mb-2 text-muted"><b>Number:</b></h6>
+            <p class="card-text">{{address.num}}</p>
+            <h6 class="card-subtitle mb-2 text-muted"><b>City:</b></h6>
+            <p class="card-text">{{address.city}}</p>
+            <h6 class="card-subtitle mb-2 text-muted"><b>Products at this location : </b></h6>
+              <div *ngFor="let product of productAdr">
+                <p class="card-text">{{product.name}}</p>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  
