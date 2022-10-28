@@ -45,4 +45,5 @@ export class EditProductComponent implements OnInit {
     this.productService.updateProduct(this.selectedProduct);
   }
 
+
 }

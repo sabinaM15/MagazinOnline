@@ -10,10 +10,11 @@ import { RatingModule } from 'ng-starrating';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { AddProductComponent } from './components/add-product/add-product.component';
-import { AddressDetailComponent } from './components/address-detail/address-detail.component'
+import { AddressDetailComponent } from './components/address-detail/address-detail.component';
+import { AddAddressComponent } from './components/add-address/add-address.component'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AddressDetailComponent } from './components/address-detail/address-deta
     EditProductComponent,
     AddProductComponent,
     AddressDetailComponent,
+    AddAddressComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { AddressDetailComponent } from './components/address-detail/address-deta
     RatingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

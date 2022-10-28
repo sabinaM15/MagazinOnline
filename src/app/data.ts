@@ -6,7 +6,22 @@ export const sample_products: Product[] =  [
     id: "0",
     name: "iPhone 13",
     price: 1549,
-    address: [1,3,4],
+    address: [
+      {
+        id: 1,
+        code: "HD",
+        street: "Hillside Drive",
+        num: 266,
+        city: "Charlestown"
+      },
+      {
+        id: 4,
+        code: "SS",
+        street: "Benedum Drive",
+        num: 2575,
+        city: "New York"
+      },
+    ],
     stock: 94,
     description: "An apple mobile which is nothing like apple",
     comments: "",
@@ -17,7 +32,22 @@ export const sample_products: Product[] =  [
     id: "1",
     name: "Dr. Martens Women's 1460w Originals",
     price: 145.62,
-    address:[2,5],
+    address:[
+      {
+        id: 0,
+        code: "SS",
+        street: "Short Street",
+        num: 1523,
+        city: "Austin"
+      },
+      {
+        id: 6,
+        code: "CS",
+        street: "Conaway Street",
+        num: 3526,
+        city: "Columbus"
+      },
+    ],
     stock: 10,
     description: "Goodyear Welted - the upper and sole are heat-sealed and sewn together, providing more comfort and durability for years to come.",
     comments: "",
@@ -28,7 +58,15 @@ export const sample_products: Product[] =  [
     id: "2",
     name: "Women's Microfiber Campus Backpack",
     price: 105,
-    address:[3],
+    address:[
+      {
+        id: 0,
+        code: "SS",
+        street: "Short Street",
+        num: 1523,
+        city: "Austin"
+      },
+    ],
     stock: 54,
     description: "The Campus Backpack measures 16 inches high, 11 inches wide, and 8 inch deep with a 3 inch Top handle drop and 32 inch adjustable straps, with a trolley sleeve for smooth travels",
     comments: "",
@@ -39,7 +77,15 @@ export const sample_products: Product[] =  [
     id: "3",
     name: "OPI ProSpa Nail and Cuticle Oil To Go",
     price: 50, 
-    address:[4],
+    address:[
+      {
+      id: 7,
+      code: "ED",
+      street: "Elkview Drive",
+      num: 2582,
+      city: "Miami"
+    },
+  ],
     stock: 10,
     description: "Designed to nourish & protect the skin while helping to stop the signs of aging before they start",
     comments: "",
@@ -50,7 +96,16 @@ export const sample_products: Product[] =  [
     id: "4",
     name: "Fast Wireless Charger",
     price: 13.99,
-    address:[5],
+    address:[
+      {
+        id: 7,
+        code: "ED",
+        street: "Elkview Drive",
+        num: 2582,
+        city: "Miami"
+      },
+    
+    ],
     stock: 34,
     description: "Compatible Phone Models: Samsung Galaxy S22,Google Pixel,S10,Huawei,Iphone,Note 10",
     comments: "",
@@ -61,7 +116,15 @@ export const sample_products: Product[] =  [
     id: "5",
     name: "Dinosaur Costume, T-Rex with Sound",
     price: 56.79,
-    address:[6],
+    address:[
+      {
+        id: 6,
+        code: "CS",
+        street: "Conaway Street",
+        num: 3526,
+        city: "Columbus"
+      },
+    ],
     stock: 3,
     description: "Long sleeve inflatable jumpsuit with battery operated fan. Fan requires 4 AA batteries, fan instructions included with costume. Batteries available separately. Please read before buying; costumes are not sized the same as apparel, please review the Rubies size chart in images, read recent reviews and Q & A to determine best fit. ",
     comments: "",
@@ -72,7 +135,15 @@ export const sample_products: Product[] =  [
     id: "6",
     name: "Pokémon Assorted Cards, 50 Pieces",
     price: 6.49,
-    address:[7,0,3],
+    address:[
+      {
+        id: 4,
+        code: "SS",
+        street: "Benedum Drive",
+        num: 2575,
+        city: "New York"
+      },
+    ],
     stock: 65,
     description: "50 Pokemon card Collection This lot will include 50 Random Uncommon and Common Pokemon Cards. Perfect way to start or grow a collection! 50 Random Pokemon cards from random sets; these could include cards from any set from the beginning up through the current set. ",
     comments: "",
@@ -83,7 +154,15 @@ export const sample_products: Product[] =  [
     id: "7",
     name: "Apple Pencil (2nd Generation), White",
     price: 98.99,
-    address:[4,5],
+    address:[
+      {
+        id: 4,
+        code: "SS",
+        street: "Benedum Drive",
+        num: 2575,
+        city: "New York"
+      },
+    ],
     stock: 100,
     description: "It magnetically attaches to iPad mini (6th generation), iPad Pro and iPad Air, charges wirelessly, and lets you change tools with a simple double tap.",
     comments: "",

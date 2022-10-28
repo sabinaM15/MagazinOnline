@@ -31,7 +31,8 @@ export class HomeComponent implements OnInit{
           this.addresses = this.addressService.getAllAddresses();
         }
 
-        console.log("Products:", this.products)
+        // console.log("Products:", this.products)
+        // console.log("Adrese: ", this.addresses)
       })
   }
   ngOnInit(): void {}

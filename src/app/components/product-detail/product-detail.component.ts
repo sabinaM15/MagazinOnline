@@ -26,7 +26,7 @@ export class ProductDetailComponent implements OnInit {
       if(params['id'])
         this.product = productService.getProductById(params['id']);
         this.addresses = addressService.getAllAddresses();
-        console.log(this.addresses);
+        // console.log(this.addresses);
     })
    }
 
@@ -36,7 +36,7 @@ export class ProductDetailComponent implements OnInit {
   addToCart(){
     this.cartService.addToCart(this.product);
     this.router.navigateByUrl('/cart-page');
-    console.log("Product added to cart!")
+    // console.log("Product added to cart!")
 
   }
 

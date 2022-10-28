@@ -6,12 +6,23 @@ import { Address } from "../models/address.model";
     providedIn: 'root'
   })
 export class AddressService{
-    getAllAddresses(): Address[]{
-        return sample_addresses;
+    
+  getAllAddresses(): Address[]{
+      return sample_addresses;
+  }
+
+  getAddressById(addressId:number):Address{
+      return this.getAllAddresses().find(address => address.id == addressId) ?? new Address();
     }
 
-    getAddressById(addressId:number):Address{
-        return this.getAllAddresses().find(address => address.id == addressId) ?? new Address();
-      }
+  saveAddress(newAddress: Address) {
+    sample_addresses.push(newAddress)
+  }
+
+  findLastId(){
+    let lastAddress = sample_addresses[sample_addresses.length-1]
+    let newId = lastAddress.id
+    return newId + 1
+  }
     
 }

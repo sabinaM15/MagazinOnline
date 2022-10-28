@@ -1,10 +1,11 @@
 import { Address } from "./address.model";
 
 export class Product {
+  [x: string]: any;
   id!: string;
   name!: string;
   price!: number;
-  address!: Array<Address['id']>;
+  address!: Array<any>;
   stock?: number;
   description?: string;
   comments?: string;

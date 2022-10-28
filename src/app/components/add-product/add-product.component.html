@@ -1,60 +1,55 @@
 <div class="container">
     <div class="row" >
+        <h5 class="card-title">Add New Product</h5>
+        <div class="col-6 p-3">
+            <div class="form-group">
+                <h6 class="card-subtitle mb-2 text-muted p-2">Name Of Product: </h6>
+                <div class="col-lg-8">
+                    <input [(ngModel)]="newProductName" type="text" class="form-control" id="inputName" placeholder="Name"  name="name">
+                </div>
+            </div>
+            <div class="form-group">
+                <h6 class="card-subtitle mb-2 text-muted p-2">Price: </h6>
+                <div class="col-lg-8">
+                    <input [(ngModel)]="newProductPrice" type="text" class="form-control" id="inputPrice" placeholder="Price" name="price">
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-outline-success p-2" routerLink="/addAddress" mat-button>Add Address</button>
+            </div>
+
+            
+        </div>
+
         <div class="col-6">
             <div class="form-group">
-                <label for="inputName" class="col-lg-3 control-label">Name Of Product: </label>
+                <h6 class="card-subtitle mb-2 text-muted p-2">Stock: </h6>
                 <div class="col-lg-8">
-                    <input type="text" class="form-control" id="inputName" placeholder="Name" name="name">
+                    <input [(ngModel)]="newProductStock" type="text" class="form-control" id="inputPrice" placeholder="Stock" name="stock">
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputName" class="col-lg-3 control-label">Price: </label>
+                <h6 class="card-subtitle mb-2 text-muted p-2">Description: </h6>
                 <div class="col-lg-8">
-                    <input type="text" class="form-control" id="inputTitle" placeholder="Price" name="price">
+                    <input [(ngModel)]="newProductDescription" type="text" class="form-control" id="inputDescription" placeholder="Description" name="description">
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputName" class="col-lg-3 control-label">Location: </label>
+                <h6 class="card-subtitle mb-2 text-muted p-2">Rating: </h6>
                 <div class="col-lg-8">
-                    <input type="text" class="form-control" id="inputTitle" placeholder="Code"  name="code">
-                    <input type="text" class="form-control" id="inputTitle" placeholder="Street" name="street">
-                    <input type="text" class="form-control" id="inputTitle" placeholder="Number"  name="num">
-                    <input type="text" class="form-control" id="inputTitle" placeholder="City"  name="city">
+                    <input [(ngModel)]="newProductRating" type="text" class="form-control" id="inputRating" placeholder="Rating" name="rating">
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputName" class="col-lg-3 control-label">Stock: </label>
+                <h6 class="card-subtitle mb-2 text-muted p-2">Image Url: </h6>
                 <div class="col-lg-8">
-                    <input type="text" class="form-control" id="inputTitle" placeholder="Stock"  name="stock">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputName" class="col-lg-3 control-label">Description: </label>
-                <div class="col-lg-8">
-                    <input type="text" class="form-control" id="inputTitle" placeholder="Description" name="description">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputName" class="col-lg-3 control-label">Rating: </label>
-                <div class="col-lg-8">
-                    <input type="text" class="form-control" id="inputTitle" placeholder="Rating" name="rating">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputName" class="col-lg-3 control-label">Image Url: </label>
-                <div class="col-lg-8">
-                    <input type="text" class="form-control" id="inputTitle" placeholder="Image Url" name="iamge">
+                    <input [(ngModel)]="newProductImage" type="text" class="form-control" id="img" placeholder="Image Url" name="image">
                 </div>
             </div>
             <div>
-                <button type="button" class="btn btn-light"  routerLink="/home">Save</button>
+                <button type="button" class="btn btn-light" (click)="createProduct()" routerLink="/home">Save</button>
             </div>
-            
+            <!-- <img [src]="newProductImage"> -->
         </div>
-        <!-- <div class="col-6">
-            <img [src]="selectedProduct.img" class="rounded mx-auto d-block"/>
-        </div> -->
-        
-        
     </div>
   </div>

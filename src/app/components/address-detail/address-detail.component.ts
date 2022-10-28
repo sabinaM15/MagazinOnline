@@ -33,16 +33,16 @@ export class AddressDetailComponent implements OnInit {
       // console.log(product)
       for(let i in product.address){
         // console.log("i",i)
-        if(this.address.id === product.address[i]){
-          this.productAdr.push(product)
+        // if(this.address.id === product.address[i]){
+        //   this.productAdr.push(product)
         }
       }
       // 
     }
-    console.log(this.productAdr)
+    // console.log(this.productAdr)
     // console.log(this.products)
     // console.log("Adresa",this.address)
-   }
+   
 
   ngOnInit(): void {
   }

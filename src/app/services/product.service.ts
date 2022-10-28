@@ -27,8 +27,14 @@ export class ProductService{
     sample_products[index] = product
   }
 
+  findLastId(){
+    let lastProduct = sample_products[sample_products.length-1]
+    let newId = parseInt(lastProduct.id)
+    return newId + 1
+  }
+  
   deleteProduct(product:Product){
-    console.log("Product ",product)
+    // console.log("Product ",product)
     const index= sample_products.indexOf(product);
     // console.log("Index:", index)
     sample_products.splice(index, 1);

@@ -1,0 +1,16 @@
+<div class="form-group">
+    <div class="col-6">
+        <h6 class="card-subtitle mb-2 text-muted p-2">How many addresses you want to add? </h6>
+        <input [(ngModel)]="numberOfAddresses" type="text" class="form-control" id="inputNickname" placeholder="Number of Addresses" name="nickname">
+    </div>
+
+    <div class="col-6">
+        <input type="text" class="form-control" id="inputNickname" placeholder="Code" name="nickname">
+        <input type="text" class="form-control" id="inputStreet" placeholder="Street" name="street">
+        <input type="text" class="form-control" id="inputNumber" placeholder="Number" name="num">
+        <input type="text" class="form-control" id="inputCity" placeholder="City" name="city">
+    </div>
+    <div>
+        <button type="button" class="btn btn-light" (click)="saveAddresses()" routerLink="/addProduct">Save</button>
+    </div>
+</div>
