@@ -38,7 +38,7 @@
                                                         </select>
                                                     </div>
                                                     <div style="width: 100px;">
-                                                        <h5 class="mb-0">{{cartItem.price | currency}}</h5>
+                                                        <h5 class="mb-0">{{cartItem.price | currency }}</h5>
                                                     </div>
                                                     <div>
                                                         <button type="button" class="btn btn-light" (click)="removeFromCart(cartItem)">Remove</button>
@@ -67,7 +67,7 @@
 
                                         <div class="d-flex justify-content-between mb-4">
                                             <p class="mb-2">Total: </p>
-                                            <p class="mb-2">{{cart.totalPrice | currency}}</p>
+                                            <p class="mb-2">{{cart.totalPrice + 20| currency}}</p>
                                         </div>
 
                                         <button type="button" class="btn btn-info btn-block btn-lg">
@@ -89,48 +89,3 @@
         </div>
     </div>
 </section>
-
-
-
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-8">
-            <ul>
-                <li *ngFor="let cartItem of cart.items">
-                    <div>
-                        <img [src]="cartItem.product.img">
-                    </div>
-                    <div>
-                        <a routerLink="/product/{{cartItem.product.id}}">{{cartItem.product.name}}</a>
-                    </div>
-                    <div>
-                        <select #quantitySelect [value]="cartItem.quantity" (change)="changeQuantity(cartItem, quantitySelect.value)">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                        </select>
-                    </div>
-                    <div>{{cartItem.price}}</div>
-                    
-                </li>
-            </ul>
-        </div>
-        <div class="col-4">
-            <div>
-                <div>{{cart.totalCount}}</div>
-                <div>{{cart.totalPrice}}</div>
-            </div>
-            <a routerLink="/checkout">Proceed</a>
-        </div>
-        
-
-    </div>
-    
-</div> -->

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row" >
-        <h5 class="card-title">Add New Product</h5>
-        <div class="col-6 p-3">
+        <h3 class="card-title">Add New Product</h3>
+        <div class="col-8 p-3">
             <div class="form-group">
                 <h6 class="card-subtitle mb-2 text-muted p-2">Name Of Product: </h6>
                 <div class="col-lg-8">
@@ -14,14 +14,6 @@
                     <input [(ngModel)]="newProductPrice" type="text" class="form-control" id="inputPrice" placeholder="Price" name="price">
                 </div>
             </div>
-            <div class="form-group">
-                <button class="btn btn-outline-success p-2" routerLink="/addAddress" mat-button>Add Address</button>
-            </div>
-
-            
-        </div>
-
-        <div class="col-6">
             <div class="form-group">
                 <h6 class="card-subtitle mb-2 text-muted p-2">Stock: </h6>
                 <div class="col-lg-8">
@@ -46,10 +38,60 @@
                     <input [(ngModel)]="newProductImage" type="text" class="form-control" id="img" placeholder="Image Url" name="image">
                 </div>
             </div>
-            <div>
-                <button type="button" class="btn btn-light" (click)="createProduct()" routerLink="/home">Save</button>
+            <div class="form-group">
+                <div class="row">
+                    <div  class="col-6">
+                        <img [src]="newProductImage" style="height: 150px; width: 150px;">
+                    </div>
+                    <div class="col-4">
+                        <button type="button" class="btn btn-light" (click)="createProduct()" routerLink="/home">Save</button>
+                    </div>
+                </div>
             </div>
-            <!-- <img [src]="newProductImage"> -->
+           
+        </div>
+
+        <div class="col-4" style="border-radius: 1px solid black;">
+            <div class="form-group">
+                    <button type="button" class="btn btn-primary mb-2" (click)="addAddress()">Add Address</button>
+                    <section class="container border mb-4 p-3" *ngFor="let address of newAddresses; let i = index;">
+                    <div class="row">
+                      <div class="col-6">
+                          <h4>Address {{i + 1}}</h4>
+                      </div>
+                      <div class="col-6 text-right">
+                          <button type="button" class="btn btn-danger btn-sm" (click)="removeAddress(i)">Remove</button>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Code</label>
+                            <input type="text" class="form-control" [(ngModel)]="address.code" name="street_{{address.code}}"/>
+                            </div>
+                      </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Street</label>
+                            <input type="text" class="form-control" [(ngModel)]="address.street" name="street_{{address.id}}"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Number</label>
+                            <input type="text" class="form-control" [(ngModel)]="address.num" name="street_{{address.num}}"/>
+                        </div>
+                      </div>
+                    
+                    <div class="row">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" class="form-control" [(ngModel)]="address.city" name="city_{{address.id}}"/>
+                        </div>
+                    </div>
+                    </section>
+                  
+                </div>
         </div>
     </div>
   </div>

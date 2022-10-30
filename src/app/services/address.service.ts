@@ -17,6 +17,8 @@ export class AddressService{
 
   saveAddress(newAddress: Address) {
     sample_addresses.push(newAddress)
+
+    console.log("Lista de adrese: ", sample_addresses);
   }
 
   findLastId(){

@@ -26,8 +26,15 @@ export class AddProductComponent implements OnInit {
   newProductComments!: string
   newProductRating!: number
   newProductImage!: string
-  vectorAdreesses!:  Address[];
   addresses: Address[] = [];
+
+  public newAddresses: Address[] = [{
+    id: 0,
+    code: '',
+    street: '',
+    num: 0,
+    city: ''
+  }];
 
   count = 1;
 
@@ -40,10 +47,24 @@ export class AddProductComponent implements OnInit {
 
     let indexAddress = this.addressService.findLastId();
 
+    
   }
 
   ngOnInit(): void {
+    
+  }
+  addAddress() {
+    this.newAddresses.push({
+      id: this.addresses.length + 1,
+      code: '',
+      street: '',
+      num: 0,
+      city: ''
+    });
+  }
 
+  removeAddress(i: number) {
+    this.newAddresses.splice(i, 1);
   }
 
   clickCounter(){
@@ -55,22 +76,15 @@ export class AddProductComponent implements OnInit {
     let indexProduct = this.productService.findLastId();
     let newIdProduct = indexProduct.toString();
 
-    let indexAddress = this.addressService.findLastId();
-    let newAddress: Address = {
-      id: indexAddress,
-      code: this.newProductAddressNickname,
-      street: this.newProductAddressStreet,
-      num: this.newProductAddressNumber,
-      city: this.newProductAddressCity
+    for(let adr of this.newAddresses){
+      this.addressService.saveAddress(adr)
     }
 
-    this.addressService.saveAddress(newAddress)
-      
     let newProduct: Product = {
       id: newIdProduct,
       name: this.newProductName,
       price: this.newProductPrice,
-      address: [this.vectorAdreesses],
+      address: [this.newAddresses],
       stock: this.newProductStock,
       description: this.newProductDescription,
       comments: this.newProductComments,

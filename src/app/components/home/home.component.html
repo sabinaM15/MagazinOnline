@@ -1,24 +1,24 @@
 <div>
   <ul class="navbar-nav mr-auto">
-    <div class="row">
-      <div class="col-3 p-1">
+    <div class="row" style="justify-content: center;">
+      <div class="col-2 p-1" style="margin-left: 50px;">
         <li class="nav-item">
           <button type="button" class="btn btn-outline-secondary" (click)="sortByName()">Sort by Name</button>
         </li>
       </div>
       
-      <div class="col-3 p-1">
+      <div class="col-2 p-1">
         <li class="nav-item">
           <button type="button" class="btn btn-outline-secondary" (click)="sortByPrice()">Sort by Price</button>
         </li>
       </div>
 
-      <div class="col-3 p-1">
-        <input #s1 class="form-control mr-sm-2" type="text" placeholder="Min price" aria-label="minPrice" (keyup.enter)="minPrice(s1.value)">
-        <input #s2 class="form-control mr-sm-2" type="text" placeholder="Max price" aria-label="maxPrice" (keyup.enter)="maxPrice(s2.value)">
+      <div class="col-1 p-1">
+        <input #s1 class="form-control mr-sm-2"  style="width: 120px" type="text" placeholder="Min price" aria-label="minPrice" (keyup.enter)="minPrice(s1.value)">
+        <input #s2 class="form-control mr-sm-2"  style="width: 120px" type="text" placeholder="Max price" aria-label="maxPrice" (keyup.enter)="maxPrice(s2.value)">
       </div>
-      <div class="col-3 p-1">
-        <button class="btn btn-outline-success" (click)="searchPriceRange(s1.value, s2.value)">Search</button>
+      <div class="col-2 p-1">
+        <button class="btn btn-outline-success" (click)="searchPriceRange(s1.value, s2.value)">Find items in this range</button>
       </div>
     </div>
   </ul>
@@ -26,14 +26,21 @@
     <div class="carousel-item active">
       <div class="container">
         <div class="row">
-          <div *ngFor="let product of products" class="col-lg-4 p-4">
-            <div class="card" style="align-items: center;">
-              <div>
-                <img
-                  src="{{product.img}}"
-                  class="card-img-top"
-                  routerLink="/product/{{product.id}}"
-                />
+          <div *ngFor="let product of products" class="col-lg-4 p-2" style="justify-content: center;">
+            <div class="card">
+              <div class="row">
+                <div class="col-7">
+                  <img
+                    src="{{product.img}}"
+                    class="card-img-top"
+                    routerLink = "/product/{{product.id}}"/>
+                </div>
+                <div class="col-5 p-2">
+                  <i *ngIf="product.favorite" style="color: rgb(213, 35, 35)" class="fas fa-heart" (click)="addToFavourite(product)"></i>
+                  <i *ngIf="!product.favorite" style="color: rgb(200, 182, 182)" class="fas fa-heart" (click)="addToFavourite(product)"></i>
+                </div>
+                
+                  
               </div>
               <div class="card-body" >
                 <h5 class="card-title">{{product.name}}</h5>
@@ -42,16 +49,12 @@
                 </div>
                 <div>
                   <span><b>Rating:</b> {{product.rating}}</span>
-                  <!-- <star-rating value="{{product.rating}}" totalstars="5" checkedcolor="red" uncheckedcolor="black" size="24px" readonly="false" (rate)="onRate($event)"></star-rating> -->
                 </div>
               
                 <div><b>Available at: </b>
-                  <div *ngFor="let address of addresses">
-                    <div *ngFor="let index of product.address">
-                      <!-- <div *ngIf="index == address.id"> -->
-                        <!-- <span>{{address.street}} {{address.num}}, {{address.city}}</span> -->
-                      <!-- </div> -->
-                    </div>
+                  <div *ngFor="let address of product.address">
+                    <span>{{address.street}} {{address.num}}, {{address.city}}</span>
+                  </div>
                 </div>
                 
                   
@@ -62,7 +65,10 @@
                 <div class="p-2">
                   <button type="button" class="btn btn-light" (click)="deleteProduct(product.id)">Delete</button>
                 </div>
-              </div>
+                
+                <div>
+                  <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
+                </div>
             </div>
           </div>
         </div>

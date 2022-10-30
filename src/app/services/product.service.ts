@@ -43,13 +43,22 @@ export class ProductService{
 
   saveProduct(product:Product){
     sample_products.push(product);
+
+    console.log("Lista de produse: ", sample_products);
   }
 
-  sortProductsByName(){
+  sortProductsByNameAsc(){
     sample_products.sort((a,b) => a.name > b.name ? 1 : -1)
   }
+  sortProductsByNameDesc(){
+    sample_products.sort((a,b) => a.name < b.name ? 1 : -1)
+  }
 
-  sortProductsByPrice(){
+  sortProductsByPriceAsc(){
     sample_products.sort((a,b) => a.price > b.price ? 1 : -1)
+  }
+
+  sortProductsByPriceDesc(){
+    sample_products.sort((a,b) => a.price < b.price ? 1 : -1)
   }
 }

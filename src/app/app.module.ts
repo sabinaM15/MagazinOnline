@@ -14,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AddressDetailComponent } from './components/address-detail/address-detail.component';
-import { AddAddressComponent } from './components/add-address/add-address.component'
+import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { AddAddressComponent } from './components/add-address/add-address.compon
     EditProductComponent,
     AddProductComponent,
     AddressDetailComponent,
-    AddAddressComponent,
+    FavoriteListComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +34,7 @@ import { AddAddressComponent } from './components/add-address/add-address.compon
     RatingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

@@ -14,8 +14,8 @@ export class AddressDetailComponent implements OnInit {
 
   address!: Address
   products: Product[] = []
-  productAdr: Product[] = []
-  index: any;
+  productAdr!: Array<any>;
+  productsToDispaly: Product[] = []
 
   constructor(
     activatedRoute:ActivatedRoute, 
@@ -30,19 +30,16 @@ export class AddressDetailComponent implements OnInit {
     this.products = productService.getAllProducts();
     
     for(let product of this.products){
-      // console.log(product)
-      for(let i in product.address){
-        // console.log("i",i)
-        // if(this.address.id === product.address[i]){
-        //   this.productAdr.push(product)
+      for(let adr of product.address){
+        if(this.address.id === adr.id){
+          this.productsToDispaly.push(product)
         }
       }
-      // 
     }
-    // console.log(this.productAdr)
-    // console.log(this.products)
-    // console.log("Adresa",this.address)
+    // console.log(this.productsToDispaly)
    
+  }
+
 
   ngOnInit(): void {
   }

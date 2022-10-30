@@ -11,4 +11,5 @@ export class Product {
   comments?: string;
   rating?: number;
   img?: string;
+  favorite?: boolean;
 }
