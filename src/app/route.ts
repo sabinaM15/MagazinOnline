@@ -6,13 +6,11 @@ import { CartPageComponent } from "./components/cart-page/cart-page.component";
 import { EditProductComponent } from "./components/edit-product/edit-product.component";
 import { FavoriteListComponent } from "./components/favorite-list/favorite-list.component";
 import { HomeComponent } from "./components/home/home.component";
-import { ProductDetailComponent } from "./components/product-detail/product-detail.component";
 
 const routes: Routes = [
   { path: '', component:HomeComponent},
   { path: 'home', component:HomeComponent},
   { path: 'search/:searchTerm', component:HomeComponent},
-  { path: 'product/:id', component: ProductDetailComponent},
   { path: 'address/:id', component: AddressDetailComponent},
   { path: 'cart-page', component: CartPageComponent},
   { path: 'addProduct', component: AddProductComponent},

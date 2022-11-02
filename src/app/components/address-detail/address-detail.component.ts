@@ -36,7 +36,6 @@ export class AddressDetailComponent implements OnInit {
         }
       }
     }
-    // console.log(this.productsToDispaly)
    
   }
 

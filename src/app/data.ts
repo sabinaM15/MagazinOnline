@@ -16,17 +16,24 @@ export const sample_products: Product[] =  [
       },
       {
         id: 4,
-        code: "SS",
+        code: "BD",
         street: "Benedum Drive",
         num: 2575,
         city: "New York"
+      },
+      {
+        id: 5,
+        code: "RR",
+        street: "Rinehart Road",
+        num: 127,
+        city: "Miami"
       },
     ],
     stock: 94,
     description: "An apple mobile which is nothing like apple",
     comments: "Fast, overall a solid phone. The only thing I would decry is the battery health is 88%, not the 90 or above from the testing sheet. Wouldn't be a huge issue except that I use the phone a bunch for work for Spotify and rideshare apps.",
     rating: 4.69,
-    img: "https://lcdn.altex.ro/resize/media/catalog/product/T/e/2bd48d28d1c32adea0e55139a4e6434a/Telefon_APPLE_iPhone_13_5G_128GB_Pink_3_.jpg",
+    img: "https://lcdn.altex.ro/resize/media/catalog/product/T/e/2bd48d28d1c32adea0e55139a4e6434a/Telefon_APPLE_iPhone_13_mini_5G_128GB_Pink_4_.jpg",
     favorite: true
   },
   {
@@ -68,6 +75,20 @@ export const sample_products: Product[] =  [
         num: 1523,
         city: "Austin"
       },
+      {
+        id: 7,
+        code: "ED",
+        street: "Elkview Drive",
+        num: 2582,
+        city: "Miami"
+      },
+      {
+        id: 5,
+        code: "RR",
+        street: "Rinehart Road",
+        num: 127,
+        city: "Miami"
+      },
     ],
     stock: 54,
     description: "The Campus Backpack measures 16 inches high, 11 inches wide, and 8 inch deep with a 3 inch Top handle drop and 32 inch adjustable straps, with a trolley sleeve for smooth travels",
@@ -86,6 +107,13 @@ export const sample_products: Product[] =  [
       code: "ED",
       street: "Elkview Drive",
       num: 2582,
+      city: "Miami"
+    },
+    {
+      id: 5,
+      code: "RR",
+      street: "Rinehart Road",
+      num: 127,
       city: "Miami"
     },
   ],
@@ -108,7 +136,20 @@ export const sample_products: Product[] =  [
         num: 2582,
         city: "Miami"
       },
-    
+      {
+        id: 0,
+        code: "SS",
+        street: "Short Street",
+        num: 1523,
+        city: "Austin"
+      },
+      {
+        id: 2,
+        code: "HL",
+        street: "Huntz Lane",
+        num: 1257 ,
+        city: "Marlboro"
+      },
     ],
     stock: 34,
     description: "Compatible Phone Models: Samsung Galaxy S22,Google Pixel,S10,Huawei,Iphone,Note 10",
@@ -129,6 +170,20 @@ export const sample_products: Product[] =  [
         num: 3526,
         city: "Columbus"
       },
+      {
+        id: 0,
+        code: "SS",
+        street: "Short Street",
+        num: 1523,
+        city: "Austin"
+      },
+      {
+        id: 5,
+        code: "RR",
+        street: "Rinehart Road",
+        num: 127,
+        city: "Miami"
+      },
     ],
     stock: 3,
     description: "Long sleeve inflatable jumpsuit with battery operated fan. Fan requires 4 AA batteries, fan instructions included with costume. Batteries available separately. Please read before buying; costumes are not sized the same as apparel, please review the Rubies size chart in images, read recent reviews and Q & A to determine best fit. ",
@@ -144,10 +199,17 @@ export const sample_products: Product[] =  [
     address:[
       {
         id: 4,
-        code: "SS",
+        code: "BD",
         street: "Benedum Drive",
         num: 2575,
         city: "New York"
+      },
+      {
+        id: 2,
+        code: "HL",
+        street: "Huntz Lane",
+        num: 1257 ,
+        city: "Marlboro"
       },
     ],
     stock: 65,
@@ -164,10 +226,17 @@ export const sample_products: Product[] =  [
     address:[
       {
         id: 4,
-        code: "SS",
+        code: "BD",
         street: "Benedum Drive",
         num: 2575,
         city: "New York"
+      },
+      {
+        id: 0,
+        code: "SS",
+        street: "Short Street",
+        num: 1523,
+        city: "Austin"
       },
     ],
     stock: 100,
@@ -210,7 +279,7 @@ export const sample_addresses: Address[] =  [
   },
   {
     id: 4,
-    code: "SS",
+    code: "BD",
     street: "Benedum Drive",
     num: 2575,
     city: "New York"

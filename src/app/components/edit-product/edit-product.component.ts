@@ -16,19 +16,22 @@ export class EditProductComponent implements OnInit {
   selectedAddress: Array<Address> = [];
   allAddresses!: Address[];
   oneAddress!: Address;
+  addresses: Address[] = [];
+  flag: boolean = false;
   // address!: Address;
   constructor(private route: ActivatedRoute, private productService: ProductService, private addressService: AddressService) { 
-    
+    console.log(this.newAddresses)
   }
+
+  public newAddresses: Address[] = [];
+
 
   ngOnInit(): void {
     let productId: string = this.route.snapshot.params['id'];
     this.selectedProduct = this.productService.getProductById(productId);
     this.allAddresses = this.addressService.getAllAddresses();
-    // console.log("Adresele Produsului: ", this.selectedProduct.address)
-    // console.log("Toate Adresele", this.allAddresses)
+    this.addresses = this.addressService.getAllAddresses();
     for(let address in this.allAddresses){
-      // console.log(address)
 
       for(let adr in this.selectedProduct.address){
         if(adr === address){
@@ -36,13 +39,29 @@ export class EditProductComponent implements OnInit {
           this.selectedAddress.push(this.oneAddress);
         }
       }
-      // console.log(address)
     }
-    // console.log(this.selectedAddress)
   }
 
   saveChanges(){
+    for(let adr of this.newAddresses){
+      this.addressService.saveAddress(adr)
+      this.selectedProduct.address.push(adr)
+    }
+    
     this.productService.updateProduct(this.selectedProduct);
+
+    console.log(this.selectedProduct)
+  }
+
+  addAddress() {
+    this.flag = true;
+    this.newAddresses.push({
+      id: this.addresses.length + 1,
+      code: '',
+      street: '',
+      num: 0,
+      city: ''
+    });
   }
 
 

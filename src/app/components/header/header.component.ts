@@ -32,7 +32,6 @@ export class HeaderComponent implements OnInit{
     })
 
     this.addresses = addressService.getAllAddresses();
-    // console.log(this.addresses);
   }
 
   ngOnInit(): void {

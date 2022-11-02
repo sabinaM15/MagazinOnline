@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row" >
+        <div class="col-6">
+            <h2 mat-dialog-title>
+              {{data.name}}
+            </h2>
+            <div>
+              <span><b>Price:</b> {{data.price}}</span>
+            </div>
+            <div>
+              <span><b>Stock:</b> {{data.stock}}</span>
+            </div>
+            <div>
+              <span><b>Description:</b> {{data.description}}</span>
+            </div>
+            <div>
+              <span><b>Rating:</b> {{data.rating}}</span>
+            </div>
+            <div><b>Comments:</b> {{data.comments}}</div>
+        </div>
+        <div class="col-6">
+          <img src="{{data.img}}" class="rounded mx-auto d-block">
+        </div>
+    </div>
+    <div class="col-3 p-4" >
+        <button type="button" class="btn btn-light" (click)="addToCart(data.id)">Add to Cart</button>
+        <button type="button" class="btn btn-light" (click)="closeDialog()">Back</button>
+
+    </div>
+  </div>
+  

@@ -8,27 +8,15 @@
         <li class="nav-item">
           <a class="nav-link" href="#" routerLink="/addProduct">Add Products</a>
         </li>
-  
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Addresses
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <div *ngFor="let address of addresses">
-              <a class="dropdown-item" href="#" routerLink="/address/{{address.id}}">{{address.code}}</a>
-            </div>
-              
-          </div>
-        </li>
       </ul>
     </div>
-    
-    
+
+
     <div class="col-4">
       <div class="row">
         <div class="col-6">
-          <input #s class="form-control mr-sm-2" type="text" placeholder="Search Products" aria-label="Search" (keyup.enter)="search(s.value)" [value]="searchTerm">
+          <input #s class="form-control mr-sm-2" type="text" placeholder="Search Products" aria-label="Search"
+            (keyup.enter)="search(s.value)" [value]="searchTerm">
         </div>
         <div class="col-6">
           <button class="btn btn-outline-success" (click)="search(s.value)">Search</button>

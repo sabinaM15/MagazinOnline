@@ -23,28 +23,25 @@ export class ProductService{
 
   updateProduct(product: Product){
     let index = sample_products.findIndex(x => x.id = product.id)
-    console.log(product)
     sample_products[index] = product
   }
 
-  findLastId(){
-    let lastProduct = sample_products[sample_products.length-1]
-    let newId = parseInt(lastProduct.id)
-    return newId + 1
+  findLastId() {
+    let lastProduct = sample_products[sample_products.length - 1]
+    if (lastProduct) {
+      let newId = parseInt(lastProduct.id)
+      return newId + 1
+    }
+    return 1
   }
   
   deleteProduct(product:Product){
-    // console.log("Product ",product)
     const index= sample_products.indexOf(product);
-    // console.log("Index:", index)
     sample_products.splice(index, 1);
-    // console.log(sample_products)
   }
 
   saveProduct(product:Product){
     sample_products.push(product);
-
-    console.log("Lista de produse: ", sample_products);
   }
 
   sortProductsByNameAsc(){

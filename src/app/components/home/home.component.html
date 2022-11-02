@@ -1,24 +1,31 @@
 <div>
   <ul class="navbar-nav mr-auto">
     <div class="row" style="justify-content: center;">
-      <div class="col-2 p-1" style="margin-left: 50px;">
+      <div class="col-3 p-1" style="margin-left: 50px;">
         <li class="nav-item">
           <button type="button" class="btn btn-outline-secondary" (click)="sortByName()">Sort by Name</button>
         </li>
       </div>
-      
-      <div class="col-2 p-1">
+
+      <div class="col-3 p-1">
         <li class="nav-item">
           <button type="button" class="btn btn-outline-secondary" (click)="sortByPrice()">Sort by Price</button>
         </li>
       </div>
 
-      <div class="col-1 p-1">
-        <input #s1 class="form-control mr-sm-2"  style="width: 120px" type="text" placeholder="Min price" aria-label="minPrice" (keyup.enter)="minPrice(s1.value)">
-        <input #s2 class="form-control mr-sm-2"  style="width: 120px" type="text" placeholder="Max price" aria-label="maxPrice" (keyup.enter)="maxPrice(s2.value)">
+      <div class="col-3 p-1">
+        <input #s1 class="form-control mr-sm-2" style="width: 120px" type="text" placeholder="Min price"
+          aria-label="minPrice" [(ngModel)]="minRange" (ngModelChange)="minRange=setMinValue($event)">
+        <input #s2 class="form-control mr-sm-2" style="width: 120px" type="text" placeholder="Max price"
+          aria-label="maxPrice" [(ngModel)]="maxRange" (ngModelChange)="maxRange=setMaxValue($event)">
       </div>
-      <div class="col-2 p-1">
-        <button class="btn btn-outline-success" (click)="searchPriceRange(s1.value, s2.value)">Find items in this range</button>
+      <div class="col-3 p-1">
+        <li class="nav-item dropdown">Addresses
+          <select class="form-select" [(ngModel)]="slcAddress" (ngModelChange)="slcAddress=selectedAddress($event)" title="Addresses" aria-label="Default select example">
+            <option>All Addresses</option>
+            <option [value]="address.code" *ngFor="let address of addresses">{{address.code}}: {{address.street}} {{address.num}}, {{address.city}}</option>
+          </select>
+        </li>
       </div>
     </div>
   </ul>
@@ -26,23 +33,22 @@
     <div class="carousel-item active">
       <div class="container">
         <div class="row">
-          <div *ngFor="let product of products" class="col-lg-4 p-2" style="justify-content: center;">
+          <div *ngFor="let product of sortByPriceProducts" class="col-lg-4 p-2" style="justify-content: center;">
             <div class="card">
               <div class="row">
                 <div class="col-7">
-                  <img
-                    src="{{product.img}}"
-                    class="card-img-top"
-                    routerLink = "/product/{{product.id}}"/>
+                  <img src="{{product.img}}" class="card-img-top" routerLink="/product/{{product.id}}" />
                 </div>
                 <div class="col-5 p-2">
-                  <i *ngIf="product.favorite" style="color: rgb(213, 35, 35)" class="fas fa-heart" (click)="addToFavourite(product)"></i>
-                  <i *ngIf="!product.favorite" style="color: rgb(200, 182, 182)" class="fas fa-heart" (click)="addToFavourite(product)"></i>
+                  <i *ngIf="product.favorite" style="color: rgb(213, 35, 35)" class="fas fa-heart"
+                    (click)="addToFavourite(product)"></i>
+                  <i *ngIf="!product.favorite" style="color: rgb(200, 182, 182)" class="fas fa-heart"
+                    (click)="addToFavourite(product)"></i>
                 </div>
-                
-                  
+
+
               </div>
-              <div class="card-body" >
+              <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
                 <div>
                   <span><b>Price:</b> {{product.price | currency}}</span>
@@ -50,25 +56,27 @@
                 <div>
                   <span><b>Rating:</b> {{product.rating}}</span>
                 </div>
-              
+
                 <div><b>Available at: </b>
                   <div *ngFor="let address of product.address">
                     <span>{{address.street}} {{address.num}}, {{address.city}}</span>
                   </div>
                 </div>
-                
-                  
-                </div>
-                <div class="p-2">
-                  <button routerLink="/editProduct/{{product.id}}" type="button" class="btn btn-light">Edit</button>
-                </div>
-                <div class="p-2">
-                  <button type="button" class="btn btn-light" (click)="deleteProduct(product.id)">Delete</button>
-                </div>
-                
-                <div>
-                  <!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
-                </div>
+
+
+              </div>
+              <div class="p-2">
+                <button routerLink="/editProduct/{{product.id}}" type="button" class="btn btn-light">Edit</button>
+              </div>
+              <div class="p-2">
+                <button type="button" class="btn btn-light" (click)="deleteProduct(product.id)">Delete</button>
+              </div>
+              <div class="p-2">
+                <button type="button" class="btn btn-light" (click)="addToCart(product.id)">Add to Cart</button>
+              </div>
+              <div class="p-2">
+                <button mat-button class="btn btn-light" (click)="openDialog(product)">View Details</button>
+              </div>
             </div>
           </div>
         </div>
@@ -76,4 +84,3 @@
     </div>
   </div>
 </div>
-  

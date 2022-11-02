@@ -20,6 +20,45 @@
                     <input type="text" class="form-control" id="inputTitle" placeholder="Number" [(ngModel)] ="address.num" name="num">
                     <input type="text" class="form-control" id="inputTitle" placeholder="City" [(ngModel)] ="address.city" name="city">
                 </div>
+                <button type="button" class="btn btn-primary mb-2" (click)="addAddress()">Add Address</button>
+                <!-- <div *ngIf="flag"> -->
+                    <section class="container border mb-4 p-3" *ngFor="let address of newAddresses; let i = index;">
+                        <div class="row">
+                          <div class="col-6">
+                              <h4>Address {{i + 1}}</h4>
+                          </div>
+                          <div class="col-6 text-right">
+                              <!-- <button type="button" class="btn btn-danger btn-sm" (click)="removeAddress(i)">Remove</button> -->
+                          </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label>Code</label>
+                                <input type="text" class="form-control" [(ngModel)]="address.code" name="street_{{address.code}}"/>
+                                </div>
+                          </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <label>Street</label>
+                                <input type="text" class="form-control" [(ngModel)]="address.street" name="street_{{address.id}}"/>
+                            </div>
+                        </div>
+    
+                        <div class="row">
+                            <div class="form-group">
+                                <label>Number</label>
+                                <input type="text" class="form-control" [(ngModel)]="address.num" name="street_{{address.num}}"/>
+                            </div>
+                          </div>
+                        
+                        <div class="row">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" class="form-control" [(ngModel)]="address.city" name="city_{{address.id}}"/>
+                            </div>
+                        </div>
+                        </section>
+                <!-- </div> -->
             </div>
 
             <div class="form-group p-2">

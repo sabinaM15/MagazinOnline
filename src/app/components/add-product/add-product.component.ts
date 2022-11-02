@@ -5,6 +5,7 @@ import { AddressService } from 'src/app/services/address.service';
 import { Address } from 'src/app/models/address.model';
 import { FormControl, FormGroup } from '@angular/forms';
 import { map } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -37,48 +38,59 @@ export class AddProductComponent implements OnInit {
   }];
 
   count = 1;
+  invalidName: boolean = true;
+  invalidPrice: boolean = true;
+  invalidAddress: boolean = true;
 
-  constructor(private productService: ProductService, private addressService: AddressService) { 
+  constructor(private productService: ProductService, private addressService: AddressService, private router: Router) {
     this.addresses = this.addressService.getAllAddresses();
     let index = this.productService.findLastId();
-    // console.log("last id: ", index)
     let indexProduct = this.productService.findLastId();
-    let newIdProduct = indexProduct.toString();
+    let indexAddress = indexProduct.toString();
+    // && this.invalidCode && this.invalidStreet && this.invalidNum && this.invalidCity)
 
-    let indexAddress = this.addressService.findLastId();
-
-    
   }
 
   ngOnInit(): void {
-    
+
   }
   addAddress() {
     this.newAddresses.push({
-      id: this.addresses.length + 1,
+      id: this.addresses.length,
       code: '',
       street: '',
       num: 0,
       city: ''
     });
+    
   }
 
   removeAddress(i: number) {
     this.newAddresses.splice(i, 1);
   }
 
-  clickCounter(){
+  clickCounter() {
     this.count += 1
-    // console.log(this.count)
   }
-  
-  createProduct(){
+
+  createProduct() {
+
     let indexProduct = this.productService.findLastId();
     let newIdProduct = indexProduct.toString();
+    this.invalidName = false;
+    this.invalidPrice = false;
+    this.invalidAddress = false;
 
-    for(let adr of this.newAddresses){
-      this.addressService.saveAddress(adr)
+    for (let adr of this.newAddresses) {
+      adr.id = this.addresses.length;
+      if(adr.code !== '' && adr.street !== '' && adr.city !== '' && adr.num !== 0){
+        this.invalidAddress = true
+        this.addressService.saveAddress(adr)
+      }
+      
+      
     }
+
 
     let newProduct: Product = {
       id: newIdProduct,
@@ -91,8 +103,21 @@ export class AddProductComponent implements OnInit {
       rating: this.newProductRating,
       img: this.newProductImage
     }
-    // console.log(newProduct)
-    this.productService.saveProduct(newProduct)
+    
+
+    if (this.newProductName !== undefined) {
+      this.invalidName = true;
+    }
+    if (this.newProductPrice !== undefined) {
+      this.invalidPrice = true;
+    }
+
+    console.log(this.invalidAddress)
+    if (this.invalidName && this.invalidPrice && this.invalidAddress) {
+      this.productService.saveProduct(newProduct)
+      this.router.navigateByUrl('/home');
+    }
+        
   }
 
 }

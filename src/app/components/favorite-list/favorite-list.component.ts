@@ -8,6 +8,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class FavoriteListComponent implements OnInit {
 
+
   favoriteProduct: Product[] = [];
   products:Product[] = [];
   changeProduct!: Product
@@ -27,9 +28,9 @@ export class FavoriteListComponent implements OnInit {
   }
 
   removeFromList(product: Product){
-    this.changeProduct = this.productService.getProductById(product.id);
-
-    this.changeProduct.favorite = false;
+    product.favorite = false;
+    const index = this.favoriteProduct.indexOf(product)
+    this.favoriteProduct.splice(index,1);
   }
 
 }

@@ -16,9 +16,10 @@ export class AddressService{
     }
 
   saveAddress(newAddress: Address) {
+    if(newAddress.code !== '')
+      console.log('nu am nume', newAddress.code) 
     sample_addresses.push(newAddress)
-
-    console.log("Lista de adrese: ", sample_addresses);
+    console.log(sample_addresses)
   }
 
   findLastId(){
